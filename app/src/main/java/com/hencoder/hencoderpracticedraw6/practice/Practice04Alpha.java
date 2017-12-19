@@ -33,10 +33,17 @@ public class Practice04Alpha extends RelativeLayout {
         animateBt = (Button) findViewById(R.id.animateBt);
         imageView = (ImageView) findViewById(R.id.imageView);
 
+        imageView.setSelected(false);
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(final View v) {
                 // TODO 在这里处理点击事件，通过 View.animate().alpha() 来改变 View 的透明度
+                if (!imageView.isSelected()) {
+                    imageView.animate().alpha(0f).start();
+                } else {
+                    imageView.animate().alpha(1f).start();
+                }
+                imageView.setSelected(!imageView.isSelected());
             }
         });
     }
